@@ -9,7 +9,7 @@ GAME RULES:
 
 */
 
-var scores, roundScore, activePlayer;
+var scores, roundScore, activePlayer, player1, player2;
 
 
 
@@ -59,12 +59,13 @@ document.querySelector('.btn-hold').addEventListener('click', function(){
 
 function nextPlayer() {
   activePlayer === 0 ? activePlayer = 1 : activePlayer = 0;
-      roundScore = 0;
+  
+  roundScore = 0;
 
-      document.getElementById('current-0').textContent = 0;
-      document.getElementById('current-1').textContent = 0;
-      document.querySelector('.player-0-panel').classList.toggle('active');
-      document.querySelector('.player-1-panel').classList.toggle('active');
+  document.getElementById('current-0').textContent = 0;
+  document.getElementById('current-1').textContent = 0;
+  document.querySelector('.player-0-panel').classList.toggle('active');
+  document.querySelector('.player-1-panel').classList.toggle('active');
 }
 
 
@@ -74,6 +75,8 @@ function newGame(){
   scores = [0,0];
   activePlayer = 0;
   roundScore = 0;
+  player1 = prompt(' Player 1, enter your name');
+  player2 = prompt('Player 2, enter your name');
 
   document.querySelector('.dice').style.display = 'none';
 
@@ -82,8 +85,8 @@ function newGame(){
   document.getElementById('current-0').textContent = '0'
   document.getElementById('current-1').textContent = '0'
 
-  document.getElementById('name-0').textContent = 'Player 1';
-  document.getElementById('name-1').textContent = 'Player 2';
+  document.getElementById('name-0').textContent = player1;
+  document.getElementById('name-1').textContent = player2;
   document.querySelector('.player-0-panel').classList.remove('winner');
   document.querySelector('.player-1-panel').classList.remove('winner');
 
@@ -91,6 +94,8 @@ function newGame(){
   document.querySelector('.player-1-panel').classList.remove('active');
 
   document.querySelector('.player-0-panel').classList.add('active');
+
+
 
 
 }
